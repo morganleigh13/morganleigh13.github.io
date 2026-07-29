@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Gochi+Hand&family=Inter:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@plugin 'daisyui' {
+  themes: emerald, corporate, sunset;
+}
+
+@plugin 'daisyui/theme' {
+  name: 'nouri';
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: #f8f3e6;
+  --color-base-200: #e9efe2;
+  --color-base-300: #dbe8d5;
+  --color-base-content: #14271b;
+  --color-primary: #1b5f91;
+  --color-primary-content: #f6fbff;
+  --color-secondary: #c68b1f;
+  --color-secondary-content: #201304;
+  --color-accent: #2d7d67;
+  --color-accent-content: #f1fff9;
+  --color-neutral: #21352a;
+  --color-neutral-content: #ffffff;
+  --color-info: #19607f;
+  --color-info-content: #ffffff;
+  --color-success: #2d7548;
+  --color-success-content: #ffffff;
+  --color-warning: #9a6118;
+  --color-warning-content: #ffffff;
+  --color-error: #ad3f3f;
+  --color-error-content: #ffffff;
+  --radius-selector: 1rem;
+  --radius-field: 9999px;
+  --radius-box: 1.5rem;
+  --depth: 1;
+  --noise: 0;
+}
+
+@plugin 'daisyui/theme' {
+  name: 'nouri-night';
+  default: false;
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #14231d;
+  --color-base-200: #1b3327;
+  --color-base-300: #244231;
+  --color-base-content: #f2f8ee;
+  --color-primary: #ff7a59;
+  --color-primary-content: #fff8f3;
+  --color-secondary: #4fb3ff;
+  --color-secondary-content: #04131d;
+  --color-accent: #ffd166;
+  --color-accent-content: #2a1800;
+  --color-neutral: #e8f3e2;
+  --color-neutral-content: #14271b;
+  --color-info: #93d6ee;
+  --color-info-content: #10242b;
+  --color-success: #92d9a8;
+  --color-success-content: #112319;
+  --color-warning: #f0c979;
+  --color-warning-content: #392409;
+  --color-error: #f3a0a0;
+  --color-error-content: #3d1111;
+  --radius-selector: 1rem;
+  --radius-field: 9999px;
+  --radius-box: 1.5rem;
+  --depth: 1;
+  --noise: 0;
+}
+
+:root {
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--color-base-content);
+  font-size: 1.02rem;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-mark, .btn, button {
+  font-family: 'Gochi Hand', 'Indie Flower', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  text-transform: none;
+  line-height: 1.12;
+  color: var(--color-primary);
+}
+
+p, span, li, label, a, small, .text-base-content {
+  font-family: 'Indie Flower', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+strong, .accent-text {
+  color: var(--color-secondary);
+}
+
+#root {
+  min-height: 100vh;
+}

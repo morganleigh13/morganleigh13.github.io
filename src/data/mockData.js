@@ -1,0 +1,17 @@
+export const mockSurveyProfile = {
+  name: 'Morgan',
+  goal: 'Lose weight',
+  fitnessPreferences: ['Walking', 'Strength training', 'Yoga'],
+  activityLevel: 'Moderately active',
+  allergies: ['Peanuts', 'Shellfish'],
+  enjoyedFoods: ['Salmon', 'Avocados', 'Greek yogurt'],
+  restrictions: ['Vegetarian'],
+  supplements: ['Vitamin D', 'Omega-3'],
+  age: 32,
+  gender: 'Woman',
+  weight: 140,
+  height: 50,
+  sleepHours: 7,
+  stressLevel: 'Moderate',
+  goals: ['Build energy', 'Improve sleep', 'Eat more protein'],
+};
