@@ -63,13 +63,18 @@ A full record of the original Nouri app development milestones:
 ### GitHub Pages hosting history
 The commits specific to turning this repo into a live GitHub Pages site:
 
+- d3f9ca9 — Improve mobile multi-select toggling
+- 7d4307c — Allow full editing of height and weight fields
+- 028b2ba — Add survey field validation and mobile-friendly inputs
+- d88c599 — Add bamboo favicon
+- 86468be — Finished project.
 - d742651 — Had to use hash router for static hosting. Also removed reset button from landing page.
 - 6253d3f — Update dependencies
 - 8e88467 — Changes to react-router. dom is deprecated.
 - 3416c8c — Configure GitHub Pages deployment
 - f1913bd — Created new repository to host site on GitHub Pages.
 
-### Nouri Development history
+### Nouri development
 
 - 06320af — Adds picture and updates readMe
 - 0d34313 — Increases font size
