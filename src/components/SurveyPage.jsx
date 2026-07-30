@@ -44,9 +44,9 @@ export default function SurveyPage({ survey, summaryText, onToggleOption, onFiel
   const previousStep = () => setStepIndex((index) => Math.max(index - 1, 0));
 
   const handleMultiSelectOption = (option) => {
-    if (step.key === 'allergies' || step.key === 'restrictions') {
-      const current = survey[step.key] || [];
+    const current = Array.isArray(survey[step.key]) ? survey[step.key] : [];
 
+    if (step.key === 'allergies' || step.key === 'restrictions') {
       if (option === 'None') {
         const next = current.includes('None') ? [] : ['None'];
         onFieldChange(step.key, next);
@@ -62,7 +62,11 @@ export default function SurveyPage({ survey, summaryText, onToggleOption, onFiel
       return;
     }
 
-    onToggleOption(step.key, option);
+    const next = current.includes(option)
+      ? current.filter((item) => item !== option)
+      : [...current, option];
+
+    onFieldChange(step.key, next);
   };
 
   const handleFormChange = (field, event) => {
@@ -107,8 +111,13 @@ export default function SurveyPage({ survey, summaryText, onToggleOption, onFiel
               return (
                 <button
                   key={option}
+                  type="button"
                   className={`btn justify-start ${active ? 'btn-primary' : 'btn-outline'}`}
                   onClick={() => handleMultiSelectOption(option)}
+                  onTouchEnd={(event) => {
+                    event.preventDefault();
+                    handleMultiSelectOption(option);
+                  }}
                 >
                   {option}
                 </button>
