@@ -90,11 +90,63 @@ function conflictsWithPlan(text, allergies, restrictions) {
   );
 }
 
-const recipeImageMap = {
-  Breakfast: 'https://images.pexels.com/photos/7615564/pexels-photo-7615564.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
-  Lunch: 'https://images.pexels.com/photos/7615569/pexels-photo-7615569.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
-  Dinner: 'https://images.pexels.com/photos/7615415/pexels-photo-7615415.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
+const fallbackRecipeImage = 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=80';
+
+const mealImageFallbackMap = {
+  Breakfast: 'https://source.unsplash.com/900x600/?breakfast,bowl,healthy',
+  Lunch: 'https://source.unsplash.com/900x600/?healthy,wrap,lunch',
+  Dinner: 'https://source.unsplash.com/900x600/?salmon,grain,bowl,dinner',
 };
+
+const recipeImageCatalog = [
+  {
+    terms: ['protein breakfast bowl', 'greek yogurt', 'coconut yogurt', 'yogurt', 'berries', 'oats', 'chia seeds'],
+    image: 'https://source.unsplash.com/900x600/?yogurt,berries,breakfast,bowl',
+  },
+  {
+    terms: ['protein and produce wrap', 'whole-grain wrap', 'wrap', 'chicken', 'hummus', 'leafy greens', 'lettuce cups'],
+    image: 'https://source.unsplash.com/900x600/?chicken,wrap,healthy,lunch',
+  },
+  {
+    terms: ['chickpeas', 'white-bean spread', 'vegan wrap', 'vegetarian wrap'],
+    image: 'https://source.unsplash.com/900x600/?chickpea,wrap,vegan,lunch',
+  },
+  {
+    terms: ['balanced grain bowl', 'salmon', 'rice', 'grain bowl', 'avocado'],
+    image: 'https://source.unsplash.com/900x600/?salmon,rice,bowl,dinner',
+  },
+  {
+    terms: ['lentils', 'cauliflower rice', 'vegan bowl', 'vegetarian bowl'],
+    image: 'https://source.unsplash.com/900x600/?lentil,bowl,vegan,dinner',
+  },
+];
+
+function ingredientToText(ingredient) {
+  if (typeof ingredient === 'string') {
+    return ingredient;
+  }
+
+  return ingredient?.ingredient || ingredient?.name || '';
+}
+
+function selectRecipeImage(template, ingredients) {
+  const recipeParts = [template.meal, template.title, ...ingredients.map(ingredientToText)]
+    .filter(Boolean)
+    .map((part) => normalized(part));
+
+  const matched = recipeImageCatalog.find(({ terms }) =>
+    terms.some((term) => {
+      const normalizedTerm = normalized(term);
+      return recipeParts.some((part) => part.includes(normalizedTerm));
+    }),
+  );
+
+  if (matched) {
+    return matched.image;
+  }
+
+  return mealImageFallbackMap[template.meal] || fallbackRecipeImage;
+}
 
 function makeRecipe(template, allergies, restrictions, goal) {
   const replacements = Object.entries(template.alternatives || {})
@@ -123,7 +175,7 @@ function makeRecipe(template, allergies, restrictions, goal) {
 
   return {
     ...template,
-    image: recipeImageMap[template.meal] || 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=80',
+    image: selectRecipeImage(template, safeIngredients),
     ingredients: safeIngredients,
     notes: [`Built as a mock recipe for your ${goal.toLowerCase()} goal. Confirm packaged ingredients and portions for your own needs.`],
   };
