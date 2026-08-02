@@ -90,34 +90,34 @@ function conflictsWithPlan(text, allergies, restrictions) {
   );
 }
 
-const fallbackRecipeImage = 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=80';
+const fallbackRecipeImage = 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1';
 
 const mealImageFallbackMap = {
-  Breakfast: 'https://source.unsplash.com/900x600/?breakfast,bowl,healthy',
-  Lunch: 'https://source.unsplash.com/900x600/?healthy,wrap,lunch',
-  Dinner: 'https://source.unsplash.com/900x600/?salmon,grain,bowl,dinner',
+  Breakfast: 'https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
+  Lunch: 'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
+  Dinner: 'https://images.pexels.com/photos/1516415/pexels-photo-1516415.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
 };
 
 const recipeImageCatalog = [
   {
     terms: ['protein breakfast bowl', 'greek yogurt', 'coconut yogurt', 'yogurt', 'berries', 'oats', 'chia seeds'],
-    image: 'https://source.unsplash.com/900x600/?yogurt,berries,breakfast,bowl',
+    image: 'https://images.pexels.com/photos/7615564/pexels-photo-7615564.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
   },
   {
     terms: ['protein and produce wrap', 'whole-grain wrap', 'wrap', 'chicken', 'hummus', 'leafy greens', 'lettuce cups'],
-    image: 'https://source.unsplash.com/900x600/?chicken,wrap,healthy,lunch',
+    image: 'https://images.pexels.com/photos/7615569/pexels-photo-7615569.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
   },
   {
     terms: ['chickpeas', 'white-bean spread', 'vegan wrap', 'vegetarian wrap'],
-    image: 'https://source.unsplash.com/900x600/?chickpea,wrap,vegan,lunch',
+    image: 'https://images.pexels.com/photos/1660030/pexels-photo-1660030.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
   },
   {
     terms: ['balanced grain bowl', 'salmon', 'rice', 'grain bowl', 'avocado'],
-    image: 'https://source.unsplash.com/900x600/?salmon,rice,bowl,dinner',
+    image: 'https://images.pexels.com/photos/7615415/pexels-photo-7615415.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
   },
   {
     terms: ['lentils', 'cauliflower rice', 'vegan bowl', 'vegetarian bowl'],
-    image: 'https://source.unsplash.com/900x600/?lentil,bowl,vegan,dinner',
+    image: 'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&dpr=1',
   },
 ];
 
